@@ -1,0 +1,133 @@
+*{
+    --black: #1A120B;
+    --brown: #3C2A21;
+    --primary: #cfc26f;
+    --secondary: #D5CEA3;
+
+    box-sizing: border-box;
+    
+    padding: 0;
+
+
+    --pd: 5px;
+    --br: 5px;
+    --gap: 5px;
+}
+
+body{
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fromDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.fromDiv h1{
+    color: var(--black);
+}
+.fromDiv form{
+    width: 40rem;
+    background-color: var(--brown);
+    display: flex;
+    padding: var(--pd);
+    gap: calc(var(--gap)*5);
+    border-radius: calc(var(--br)*2);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+#labels{
+    display: flex;
+    gap: var(--gap);
+    flex-direction: column;
+    
+}
+label{
+    padding: calc(var(--pd)*2);
+}
+.inputs{
+    padding: var(--pd);
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    gap: calc(var(--gap)*5);
+}
+input{
+    padding: var(--pd);
+    border-radius: var(--br);
+}
+.fromDiv label{
+    color: var(--secondary);
+    
+}
+.fromDiv form span{
+    font-size: 15px;
+    position: absolute;
+    right: 0;
+    padding: var(--pd);
+}
+
+.name, .email, .country, .zipcode, .password, .cnfPassword{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap)*5);
+    justify-content: space-between;
+}
+.btns{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: var(--pd);
+    
+}
+button{
+    width: 100px;
+    padding: var(--pd);
+    border: 0;
+    border-radius: var(--br);
+    background-color: var(--secondary);
+    cursor: pointer;
+}
+button:hover{
+    background-color: var(--primary);
+}
+button:focus{
+    background-color: var(--primary);
+    
+}
+input.valid{
+    
+    background-color: green;
+    color: #fdd;
+}
+
+input.invalid {
+    border-color: #900;
+    background-color: #fdd;
+  }
+  
+  input:focus.invalid {
+    outline: none;
+  }
+
+  .error {
+    width: 100%;
+    padding: 0;
+  
+    font-size: 80%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+  }
+  
+  .error.active {
+    padding: 0.3em;
+  }

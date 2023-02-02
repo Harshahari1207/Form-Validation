@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Form Validation Project</title>
+</head>
+<body>
+    <div class="fromDiv">
+        <h1>Form</h1>
+        <form action="">
+            <div id="labels">
+                <label for="uName">Name:</label>
+                <label for="uEmail">Email:</label>
+                <label for="uCountry">Country:</label>
+                <label for="uZipcode">Zipcode:</label>
+                <label for="uPassword">Password:</label>
+                <label for="uCnfPassword">Confirm Password:</label>
+                
+            </div>
+            <div class="inputs spans">
+                <div class="name">
+                    <input type="text" id="uName" name="uName" placeholder="Hari" required >
+                    <span class="nameError" aria-live="polite">Error</span>
+                </div>
+                <div class="email">
+                    <input type="email" id="uEmail" name="uEmail" placeholder="bac@gmail.xxx" required>
+                    <span class="emailError" aria-live="polite"></span>
+                    
+                </div>
+                <div class="country">
+                    <input type="text" id="uCountry" name="uCountry" placeholder="India" required>
+                    <span class="countryError" aria-live="polite">Error</span>
+                    
+                </div>
+                <div class="zipcode">
+                    <input type="number" id="uZipcode" name="uZipcode" placeholder="517354" required maxlength="6">
+                    <span class="zipcodeError" aria-live="polite">Error</span>
+                    
+                </div>
+                <div class="password">
+                    <input type="password" id="uPassword" name="uPassword" required minlength="6" maxlength="15">
+                    <span class="passwordError" aria-live="polite">Error</span>
+                    
+                </div>
+                <div class="cnfPassword">
+                    <input type="password" id="uCfPassword" name="uCnfPassword" required minlength="6" maxlength="15">
+                    <span class="cnfPssError" aria-live="polite">Error</span>
+    
+                </div>
+            </div>
+            <div class="btns">
+                <button class="submit">Submit</button>
+                <button class="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+    
+
+    <script src="./script.js"></script>
+</body>
+</html>
