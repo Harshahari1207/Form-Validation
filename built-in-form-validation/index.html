@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>In-built Form Validation</title>
+</head>
+<body>
+    <h1>In-Built form validation</h1>
+    <div class="form">
+        <form>
+            <p>
+              <fieldset>
+                <legend>Do you have a driver's license?<span aria-label="required">*</span></legend>
+                
+                <input type="radio" required name="driver" id="r1" value="yes"><label for="r1">Yes</label>
+                <input type="radio" required name="driver" id="r2" value="no"><label for="r2">No</label>
+              </fieldset>
+            </p>
+            <p>
+              <label for="n1">How old are you?</label>
+              
+              <input type="number" min="12" max="120" step="1" id="n1" name="age"
+                     pattern="\d+" >
+            </p>
+            <p>
+              <label for="t1">What's your favorite color?<span aria-label="required">*</span></label>
+              <input type="text" id="t1" name="fruit" list="l1" required
+                     pattern="[Bb]lack|[Rr]ed|[Bb]lue|[Gg]rey|[Bb]rown|[Oo]range">
+              <datalist id="l1">
+                <option>Red</option>
+                <option>Blue</option>
+                <option>Grey</option>
+                <option>Black</option>
+                <option>Brown</option>
+                <option>Orange</option>
+              </datalist>
+            </p>
+            <p>
+              <label for="t2">What's your email address?</label>
+              <input type="email" id="t2" name="email" required>
+            </p>
+            <p>
+              <label for="t3">Leave a short message</label>
+              <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+            </p>
+            <p>
+              <button>Submit</button>
+            </p>
+          </form>
+          
+    </div>
+</body>
+</html>
