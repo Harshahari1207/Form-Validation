@@ -20,18 +20,18 @@ const emailRegExp =
 const passRegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 window.addEventListener('load', ()=>{
-    const isValidName = name.value.length >= 3;
-    name.className = isValidName ? "valid" : "invalid";
+    const isValidName = name.value.length === 0;
+    name.className = isValidName ? "" : "invalid";
 
-    const isValidEmail =  emailRegExp.test(email.value);
+    const isValidEmail = email.value.length === 0 || emailRegExp.test(email.value);
     console.log(isValidEmail);
-    email.className = isValidEmail ? "valid" : "invalid";
+    email.className = isValidEmail ? "" : "invalid";
 
-    const isValidZipcode = zipcode.value.length === 6;
-    zipcode.className = isValidZipcode ? "valid" : "invalid";
+    const isValidZipcode = zipcode.value.length === 0 || zipcode.value.length === 6;
+    zipcode.className = isValidZipcode ? "" : "invalid";
 
-    const isValidPassword = (password.value.length > 6 && password.value.length < 16) || passRegExp.test(password.value);
-    password.className = isValidPassword ? "valid" : "invalid";
+    const isValidPassword = password.value.length === 0 || (password.value.length > 6 && password.value.length < 16);
+    password.className = isValidPassword ? "" : "invalid";
 });
 
 name.addEventListener("input", ()=>{
@@ -56,27 +56,30 @@ email.addEventListener("input", () =>{
         emailError.classList.remove('error');
     } else {
         console.log("hello")
-        email.className = "Enter email format";
+        email.className = "invalid";
+        emailError.textContent = "Enter same as placeholder i.e abc@gmail.com";
         emailError.className = "error";
     }
 });
 
 zipcode.addEventListener("input", () =>{
-    const isValidZipcode = zipcode.value === 6;
+    const isValidZipcode = zipcode.value.length === 6;
     if(isValidZipcode){
         zipcode.className = "valid";
         zipcodeError.textContent = "";
         zipcodeError.classList.remove('error');
     }else{
         zipcode.className = "invalid";
-        zipcodeError.textContent = "error";
-        // zipcodeError.className = "error";
+        zipcodeError.textContent = "Zip code must be 6 digits";
+        zipcodeError.className = "error";
     }
 })
 
 password.addEventListener("input", () =>{
-    const isValidPassword = (password.value.length > 6 && passRegExp.value.length < 16) || passRegExp.test(password.value);
+    const isValidPassword = password.value.length > 6 && password.value.length < 16;
+    console.log(isValidPassword)
     if(isValidPassword){
+        
         password.className = "valid";
         passwordError.textContent = "";
         passwordError.classList.remove("error");
@@ -115,20 +118,21 @@ form.addEventListener("submit", (event) => {
         nameError.className = "error";
     }
 
-    const isValid = email.value.length === 0 || emailRegExp.test(email.value);
-    if (!isValid) {
+    const isValidEmail = email.value.length === 0 || emailRegExp.test(email.value);
+    if (!isValidEmail) {
         email.className = "invalid";
-        error.textContent = "I expect an email, darling!";
-        error.className = "error active";
+        emailError.textContent = "I expect an email, darling!";
+        emailError.className = "error";
     } else {
         console.log("done");
         email.className = "valid";
-        error.textContent = "";
-        error.className = "error";
+        emailError.textContent = "";
+        emailError.className = "error";
     }
 
-    const isValidZipcode = zipcode.value === 6;
+    const isValidZipcode = zipcode.value.length === 6;
     if(isValidZipcode){
+        console.log("zipcode");
         zipcode.className = "valid";
         zipcodeError.textContent = "";
         zipcodeError.classList.remove('error');
@@ -138,7 +142,7 @@ form.addEventListener("submit", (event) => {
         zipcodeError.className = "error";
     }
 
-    const isValidPassword = (password.value.length > 6 && passRegExp.value.length < 16) || passRegExp.test(password.value);
+    const isValidPassword = (password.value.length > 6 && password.value.length < 16) || passRegExp.test(password.value);
     if(isValidPassword){
         password.className = "valid";
         passwordError.textContent = "";
@@ -158,5 +162,11 @@ form.addEventListener("submit", (event) => {
         confirmPassword.className = "invalid";
         confirmPasswordError.textContent = "It should match the prev entered password";
         confirmPasswordError.className = "error";
+    }
+
+    if(isValidName && isValidEmail && isValidZipcode && isValidPassword && isValidCnfPassword){
+        
+        window.location.reload();
+        alert("Form Submitted successfully");
     }
 });

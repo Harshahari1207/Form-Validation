@@ -104,8 +104,8 @@ button:focus{
 }
 input.valid{
     
-    background-color: green;
-    color: #fdd;
+    background-color: rgb(174, 241, 174);
+    color: rgb(19, 18, 18);
 }
 
 input.invalid {
@@ -122,8 +122,8 @@ input.invalid {
     padding: 0;
     transform: translateX(60%);
     font-size: 80%;
-    color: white;
-    background-color: #900;
+    color: rgb(216, 70, 70);
+    
     border-radius: 0 0 5px 5px;
     box-sizing: border-box;
   }
