@@ -74,6 +74,7 @@ input{
 }
 
 .name, .email, .country, .zipcode, .password, .cnfPassword{
+    width: 20rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -120,7 +121,7 @@ input.invalid {
   .error {
     width: 100%;
     padding: 0;
-    transform: translateX(60%);
+    transform: translateX(10%);
     font-size: 80%;
     color: rgb(216, 70, 70);
     
@@ -130,4 +131,8 @@ input.invalid {
   
   .error.active {
     padding: 0.3em;
+  }
+  span{
+    width: 100%;
+    margin-top: 25px;
   }
